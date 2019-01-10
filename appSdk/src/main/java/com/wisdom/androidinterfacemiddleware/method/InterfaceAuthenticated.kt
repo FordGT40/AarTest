@@ -38,7 +38,7 @@ public class InterfaceAuthenticated(context: Context) {
          *  @author HanXueFeng
          *  @time 2019/1/10  14:03
          */
-        public fun getAccessKey(context: Context, url: String): String {
+         fun getAccessKey(context: Context, url: String): String {
 
             packageName = context.packageName
             val appInfo = context.packageManager.getApplicationInfo(
@@ -47,7 +47,7 @@ public class InterfaceAuthenticated(context: Context) {
             )
             appid = appInfo.metaData.getString("appid")
 
-            var result: String = ""
+            val result: String
             if (packageName != packageNameLocal || appid != appidLocal) {
                 result = ""
                 Toast.makeText(context, "包名或appid有误，请重试", Toast.LENGTH_SHORT).show()
