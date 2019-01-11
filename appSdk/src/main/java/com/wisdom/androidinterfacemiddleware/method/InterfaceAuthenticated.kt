@@ -76,7 +76,7 @@ public class InterfaceAuthenticated(context: Context) {
                 val iv = CryptLib.generateRandomIV(16) //16 bytes = 128 bit
                 println("*****iv****:$iv")
                 //以下方法第三个参数是由上面一行代码随机生成，现在将iv值写死，
-                // 目的是为了和iOS端生成秘闻保持一致
+                // 目的是为了和iOS端生成密文保持一致
                 strCode = _crypt.encrypt(plainText, key, encryptIv) //encrypt
 //            output = _crypt.decrypt(output, key, "4111591c67e98da6") //decrypt
             } catch (e: Exception) {
