@@ -51,6 +51,7 @@ public class InterfaceAuthenticated(context: Context) {
             if (packageName != packageNameLocal || appid != appidLocal) {
                 result = ""
                 Toast.makeText(context, "包名或appid有误，请重试", Toast.LENGTH_SHORT).show()
+            println("huaze:包名或appid有误，请重试")
             } else {
                 //初步验证通过，进行品参数返回加密串
                 result = getCodeStr(url)
