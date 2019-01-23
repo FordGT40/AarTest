@@ -27,10 +27,10 @@ public class InterfaceAuthenticated(context: Context) {
         lateinit var packageName: String
         lateinit var appid: String
         //配置加密用的key 和 appid参数（以下参数需要在集成项目之前配置到aar本地）
-        val secretKeyLocal: String = "secretKey"//加密用的钥匙
-        val packageNameLocal: String = "com.wisdom.aartest"// 当前主App包名
-        val appidLocal: String = "AIzaSyBhBFOgVQclaa8p1JJeqaZHiCo2nfiyBBo"//manifest中配置的meta-data ，用来验证当前App、是否合法
-        val encryptIv: String = "4111591c67e98da6"//加密用的，代码生成的偏移量，保持和ios端的值一样即可
+        private const val secretKeyLocal: String = "vPban9T6tE10F8gx"//加密用的钥匙
+        private const val packageNameLocal: String = "io.dcloud.H52DD71BF"// 当前主App包名
+        private const val appidLocal: String = "AIzaSyBhBFOgVQclaa8p1JJeqaZHiCo2nfiyBBo"//manifest中配置的meta-data ，用来验证当前App、是否合法
+        private const val encryptIv: String = "4111591c67e98da6"//加密用的，代码生成的偏移量，保持和ios端的值一样即可
 
         /**
          *  @describe 通过验证，获得访问接口的key
@@ -38,7 +38,7 @@ public class InterfaceAuthenticated(context: Context) {
          *  @author HanXueFeng
          *  @time 2019/1/10  14:03
          */
-         fun getAccessKey(context: Context, url: String): String {
+        fun getAccessKey(context: Context, url: String): String {
 
             packageName = context.packageName
             val appInfo = context.packageManager.getApplicationInfo(
@@ -51,7 +51,7 @@ public class InterfaceAuthenticated(context: Context) {
             if (packageName != packageNameLocal || appid != appidLocal) {
                 result = ""
                 Toast.makeText(context, "包名或appid有误，请重试", Toast.LENGTH_SHORT).show()
-            println("huaze:包名或appid有误，请重试")
+                println("huaze:包名或appid有误，请重试")
             } else {
                 //初步验证通过，进行品参数返回加密串
                 result = getCodeStr(url)
@@ -71,14 +71,12 @@ public class InterfaceAuthenticated(context: Context) {
             var strCode = ""
             try {
                 val _crypt = CryptLib()
-
-                val plainText = str
                 val key = CryptLib.SHA256(secretKeyLocal, 32) //32 bytes = 256 bit
                 val iv = CryptLib.generateRandomIV(16) //16 bytes = 128 bit
                 println("*****iv****:$iv")
                 //以下方法第三个参数是由上面一行代码随机生成，现在将iv值写死，
                 // 目的是为了和iOS端生成密文保持一致
-                strCode = _crypt.encrypt(plainText, key, encryptIv) //encrypt
+                strCode = _crypt.encrypt(str, key, encryptIv) //encrypt
 //            output = _crypt.decrypt(output, key, "4111591c67e98da6") //decrypt
             } catch (e: Exception) {
                 e.printStackTrace()
