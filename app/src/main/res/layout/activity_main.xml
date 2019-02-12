@@ -6,6 +6,7 @@
         android:layout_height="match_parent">
 
     <EditText
+            android:text="v2/projects/items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -19,23 +20,27 @@
             android:text="确定"
             android:layout_margin="18dp"
             />
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/ll"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
-    <TextView
+
+    <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ll"
             android:gravity="center"
-            android:layout_margin="30dp"
-            android:id="@+id/tv_result_1"
-            android:layout_height="wrap_content"/>
-    <TextView
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_margin="30dp"
-            android:id="@+id/tv_result"
-            android:layout_height="wrap_content"/></LinearLayout>
+            android:orientation="vertical"
+            >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="30dp"
+                android:id="@+id/tv_result_1"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="30dp"
+                android:id="@+id/tv_result"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>

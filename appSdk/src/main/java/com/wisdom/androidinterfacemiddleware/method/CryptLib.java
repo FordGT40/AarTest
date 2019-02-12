@@ -34,7 +34,7 @@ public class CryptLib {
  * Encryption mode enumeration
  */
 private enum EncryptMode {
-    ENCRYPT, DECRYPT;
+    ENCRYPT, DECRYPT
 }
 
 // cipher to be used for encryption and decryption

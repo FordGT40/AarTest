@@ -37,8 +37,13 @@ class MainActivity : Activity() {
 
     @SuppressLint("SetTextI18n")
     private fun encopy() {
-        tv_result_1.text = "加密结果：${InterfaceAuthenticated
-            .getAccessKey(this, et_content.text.toString())}"
+        tv_result_1.text="加密结果：${InterfaceAuthenticated
+            .getAccessKey(this, "09AB57BB-A4BF-F730-D6D0-0B8D6498B273", et_content.text.toString())}"
+
+        println(
+            "加密结果：${InterfaceAuthenticated
+                .getAccessKey(this, "09AB57BB-A4BF-F730-D6D0-0B8D6498B273", et_content.text.toString())}"
+        )
     }
 
 
